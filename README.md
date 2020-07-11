@@ -7,4 +7,5 @@ https://github.com/Jad-Wardeh/gymcam/blob/master/img/RasPi3.png
 -  Pi Camera 2 - allowed me to stream videos with pretty good quality, containing a 8-megapixel sensor, and allowed me to run OpenCV, OpenPose, and TriangleSolver on it.
 https://github.com/Jad-Wardeh/gymcam/blob/master/img/RasCameraV2.png
 -  Intel Neural Compute Stick 2 - an NPU that allowed the camera to become much more responsive and much smoother. The Raspberry Pi did not generate enough power to allow the camera to run smoothly.
-
+https://github.com/Jad-Wardeh/gymcam/blob/master/img/IntelNeuralStickV2.png
+-  PIM183 PanTiltHat - has great movement and allowed me to rotate my camera in the direction I wanted. Also allowed me to face the camera based on where the person was standing and was very responsive and efficient in responding to my code
