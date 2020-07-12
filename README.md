@@ -3,14 +3,10 @@
 -  In this project, my overall goal was to assist individuals in the gym by employing Raspberry Pi and Camera technology into practical use. More specifically, this design is intended to aid one in improving how they do squats by allowing them to view their form from a different angle. Simultaneously, with using OpenPose, one is able to view lines on their screen according to their body, forming a precise image of what they look like while working out. At the gym, the camera will be placed to the side, and the video will be streamed directly to their phone, which is placed in front of the individual.
 ## What Was Used
 ### Hardware
--  Raspberry Pi 3 B+ - comes along with 1.4GHz 64-bit quad-core ARM Cortex-a53 CPU, ethernet, Availability for LAN and Bluetooth connections, and various other features.
-https://github.com/Jad-Wardeh/gymcam/blob/master/img/RasPi3.png
--  Pi Camera 2 - allowed me to stream videos with pretty good quality, containing a 8-megapixel sensor, and allowed me to run OpenCV, OpenPose, and TriangleSolver on it.
-https://github.com/Jad-Wardeh/gymcam/blob/master/img/RasCameraV2.png
--  Intel Neural Compute Stick 2 - an NPU that allowed the camera to become much more responsive and much smoother. The Raspberry Pi did not generate enough power to allow the camera to run smoothly.
-https://github.com/Jad-Wardeh/gymcam/blob/master/img/IntelNeuralStickV2.png
--  PIM183 PanTiltHat - has great movement and allowed me to rotate my camera in the direction I wanted. Also allowed me to face the camera based on where the person was standing and was very responsive and efficient in responding to my code
-https://github.com/Jad-Wardeh/gymcam/blob/master/img/PanTiltHat.png
+-  [Raspberry Pi 3 B+](https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/) - comes along with 1.4GHz 64-bit quad-core ARM Cortex-a53 CPU, ethernet, Availability for LAN and Bluetooth connections, and various other features.
+-  [Pi Camera 2](https://www.raspberrypi.org/products/camera-module-v2/) - allowed me to stream videos with pretty good quality, containing a 8-megapixel sensor, and allowed me to run OpenCV, OpenPose, and TriangleSolver on it.
+-  [Intel Neural Compute Stick 2](https://store.intelrealsense.com/buy-intel-neural-compute-stick-2.html?cid=sem&source=sa360&campid=2019_q3_egi_us_ntgrs_nach_revs_text-link_brand_bmm_desk_realsense-shopping-ad_o-1lngr_google&ad_group=RealSense+Shopping+Ads&intel_term=PRODUCT_GROUP&sa360id=92700050119513690&gclid=Cj0KCQjw6ar4BRDnARIsAITGzlAEl_pPpmhuDqj5YzaGbwqQQt7DydVdqa9CFmBKrp84k-MuU5R5FC0aAoAQEALw_wcB&gclsrc=aw.ds) - an NPU that allowed the camera to become much more responsive and much smoother. The Raspberry Pi did not generate enough power to allow the camera to run smoothly.
+-  [PIM183 PanTiltHat](https://shop.pimoroni.com/products/pan-tilt-hat?variant=33704345034) - has great movement and allowed me to rotate my camera in the direction I wanted. Also allowed me to face the camera based on where the person was standing and was very responsive and efficient in responding to my code
 ### Raspberry Pi OS
 -  For software, I began this project by connecting an SD card to my computer and installing [Raspberry Pi OS](https://www.raspberrypi.org/documentation/installation/installing-images/). I then attached the SD card to the Raspberry Pi and started it up. Raspberry Pi OS is the operating system for Raspberry Pi. Now, I could treat the Raspberry Pi as a regular computer and install the software and programs I desire.
 ### Python Libraries
