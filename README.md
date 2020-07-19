@@ -9,13 +9,15 @@
 -  [PIM183 PanTiltHat](https://shop.pimoroni.com/products/pan-tilt-hat?variant=33704345034) - has great movement, can tilt and pan to face the camera up, down, and to the side. Can turn 180 degrees horizontally and vertically and was used to place the person's head in the middle/upper side of the video stream.
 ### Hardware Components Setup
 -  Attach the camera to the pan-tilt model using the provided plastic screws and bolts.
--  attach the pan-tilt model to the HAT.
+-  Attach the pan-tilt model to the HAT using the four provided screws.
+-  Connect the camera cable to raspberry pi camera module port.
 -  Connect the two servo wires to the HAT.
 -  Attach the Pan-Tilt HAT pinout compatible to the 40-pin header Raspberry Pi models.
+-  Optional - use a raspberry pi case to protect the raspberry pi.
 ### Raspberry Pi OS Setup
 -  For software, I began this project by connecting an SD card to my computer and installing [Raspberry Pi OS](https://www.raspberrypi.org/documentation/installation/installing-images/). I then attached the SD card to the Raspberry Pi and started it up. Raspberry Pi OS is the operating system for Raspberry Pi. Now, I could treat the Raspberry Pi as a regular computer and install the software and programs I desire.
-### Python Libraries
--  [OpenCV](https://www.pyimagesearch.com/2019/04/08/openvino-opencv-and-movidius-ncs-on-the-raspberry-pi/)
+### Installing Rquired Software Modules
+-  [OpenCV](https://www.pyimagesearch.com/2019/04/08/openvino-opencv-and-movidius-ncs-on-the-raspberry-pi/) - 
 -  [OpenVino](https://www.pyimagesearch.com/2019/04/08/openvino-opencv-and-movidius-ncs-on-the-raspberry-pi/)
      - For installation of OpenCV and OpenVino, follow the steps on the website until step #9.
 -  [Pantilthat Library](https://pypi.org/project/pantilthat/) - to install this library, a simple command, "pip install pantilthat," in the command line. This will be used in code to control the movements of the PanTilitHat, aiming the camera in the direction I desire.
