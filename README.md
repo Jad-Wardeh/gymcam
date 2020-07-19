@@ -1,4 +1,4 @@
-# gymcam
+# GymCam Streamer
 
  <img src='./img/gym.png' height="100px" /><img src='./img/RPi.png'  height="100px"/><img src='./img/OpenCV.png'  height="100px" /><img src='./img/npu.png'  height="100px" />
  
