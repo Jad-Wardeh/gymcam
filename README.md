@@ -4,7 +4,7 @@
 
 ## Description
 In this project, my overall goal was to assist individuals in the gym or at home by employing Raspberry Pi and Camera technology into practical use. More specifically, this design is intended to aid one in improving how they do squats by allowing them to view their form from a different angle. Simultaneously, with using human pose estimation and face recognition, one is able to view lines on their screen according to their body, forming a precise image of what they look like while working out. The camera will be placed to the side, and the video will be streamed directly to their phone, which is placed in front of the individual.
-[![How it works](https://img.youtube.com/vi/VIDEO-ID/0.jpg)](https://github.com/Jad-Wardeh/gymcam/blob/master/img/moving.mp4)
+<video src="https://github.com/Jad-Wardeh/gymcam/blob/master/img/moving.mp4" width="320" height="200" controls preload></video>
 ## What Was Used
 ### Hardware
 -  [Raspberry Pi 3 B+](https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/) comes along with 1.4GHz 64-bit quad-core ARM Cortex-a53 CPU, ethernet, Availability for LAN and Bluetooth connections, and various other features.
