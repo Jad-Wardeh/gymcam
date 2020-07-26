@@ -4,9 +4,6 @@
 
 ## Description
 In this project, my overall goal was to assist individuals in the gym or at home by employing Raspberry Pi and Camera technology into practical use. More specifically, this design is intended to aid one in improving how they do squats by allowing them to view their form from a different angle. Simultaneously, with using human pose estimation and face recognition, one is able to view lines on their screen according to their body, forming a precise image of what they look like while working out. The camera will be placed to the side, and the video will be streamed directly to their phone, which is placed in front of the individual.
-
-<img src='./img/stream.gif' height="200px" /><img src='./img/moving.gif' height="200px" /><img src='./img/pantilthat.gif' height="200px" /><img src='./img/squats.gif' height="200px" />
-
 ## What Was Used
 ### Hardware
 -  [Raspberry Pi 3 B+](https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/) comes along with 1.4GHz 64-bit quad-core ARM Cortex-a53 CPU, ethernet, Availability for LAN and Bluetooth connections, and various other features.
@@ -55,19 +52,42 @@ Now that we have downloaed all the required face-recognition and openpose models
           $ python train_model.py --embeddings output/embeddings.pickle \
           --recognizer output/recognizer.pickle --le output/le.pickle
 
-## Download the OpenPose Models
+## Download the Models
+### 1) Face detection Models
+For face detection, we are using two models, and they are both included in my repository. I downloaded the models based on the instructions provided by Adrian Rosebrock from "PyImageSearch" in his article - [Raspberry Pi and Movidius NCS Face Recognition](https://www.pyimagesearch.com/2020/01/06/raspberry-pi-and-movidius-ncs-face-recognition/):
+-  Detector: A pre-trained Caffe DL model to detect where the faces are located in a frame
+-  Embedder: A pre-trained Torch DL model to calculate face embeddings
+
+### 2) OpenPose Model
+I downloaded the model based on the instructions provided by Vikas Gupta from "LearnOpenCV" in his acticle - [Deep Learning based Human Pose Estimation using OpenCV](https://www.learnopencv.com/deep-learning-based-human-pose-estimation-using-opencv-cpp-python/)
+
+The model is not included in my reporsitory, and you will need to run the "getModels.sh" shell command file to download the models from the repositiory:
+          
+          $ ./getModels
 
 ## Pantilthat Movement
--  In order to get the camera to place the individual's face exactly in the center and upper side of the screen, I had to apply Law of Cosines and Law of Sines in order to calculate the angle at which the Pantilthat was required to move. Since I aimed the individual's face to be in the center of the screen on the x-axis, a right-triangle was formed between the camera, the individual, and the center of the screen. I then could use given side lengths and angles in order to find the missing angle, which was the angle at which the camera moved in order to get the individual's face to the center of the screen. 
-- For the y-axis, a simpler method was used: if the location of the regonized facve 
+In order to get the camera to place the individual's face exactly in the center and upper side of the screen, I had to apply Law of Cosines and Law of Sines in order to calculate the angle at which the Pantilthat was required to move
+-  For the x-axis, since I aimed the individual's face to be in the center of the screen, a right-triangle was formed between the camera, the individual, and the center of the screen. I then could use given side lengths and angles in order to find the missing angle, which was the angle at which the camera moved in order to get the individual's face to the center of the screen
+- For the y-axis, a simpler method was used: if the location of the regonized face was above a certain point, the pantilthat will tilt upward to get the face to the upper side of the screen. If the face is below a certain point, the pantilt hat will tilt downward to get the face to the upper side of the screen
 
-The command- "setPreferableTarget(cv2.dnn.DNN_TARGET_MYRIAD)"- in the gymcam_streamer.py program that tells OpenCV to use the Intel Neural Compute Stick 2 to run the model.
+## Improve performance using Intel Neural Compute Stick 2
+In my program, I am using OpenCV DNN module (Deep Neural Netowork), which is used for inference using the pre-trained face recognition and human pose models, but the performance of these models on the RaspberryPi by itself was too laggy and degraded the quality of the program. As recommended by Adrian Rosebrock from "PyImageSearch" in his article - [Raspberry Pi and Movidius NCS Face Recognition](https://www.pyimagesearch.com/2020/01/06/raspberry-pi-and-movidius-ncs-face-recognition/), I was able to improve the performance of my program with the Intel Neural Compute Stick 2. Please follow the instructions given by Rosebrock to setup the OpenVino environement
 
- Now, with all the components combined, the individual can see their form while squatting and work on ways to improve his or herself. Furthermore, this can be implemented into other workouts, other than squatting, in order for the weightlifter to improve their form.
+The folowing function in my "gymcam_streamer.py" program instructs the OpenCV DNN module to run the inference on the Intel USB stick:
 
- -  Once completed, to test it, I ran this command:
+          setPreferableTarget(cv2.dnn.DNN_TARGET_MYRIAD)
 
-          $ python videoStreamer.py --detector face_detection_model \
-          --embedding-model face_embedding_model/openface_nn4.small2.v1.t7 \
-          --recognizer output/recognizer.pickle \
-          --le output/le.pickle
+## Start the GymCam Server on the RaspberryPi
+ - Make sure your RaspberryPi is connected to your WiFi
+ - Run the gymcam_streamer
+     
+          (openvino) pi@raspberrypi: source ~/start_openvino.sh
+          (openvino) pi@raspberrypi: python3 gymcam_streamer.py
+
+- Check the IP Address of your RaspberryPi
+- Open a web browser on your phone, tablet or computer
+- Using your RaspberryPi IP address(mine was 10.0.0.81), open the following address on your browser:
+     http://10.0.0.81:3030/video_feed
+
+## Enjoy your workout!
+Now, with all the components combined, the individual can see their form while squatting and work on ways to improve his or herself. Furthermore, this can be implemented into other workouts, other than squatting, in order for the weightlifter to improve their form
