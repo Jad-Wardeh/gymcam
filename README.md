@@ -52,7 +52,7 @@ Now that we have downloaed all the required face-recognition and openpose models
           $ python train_model.py --embeddings output/embeddings.pickle \
           --recognizer output/recognizer.pickle --le output/le.pickle
 
-## Download the Models
+## Machine Learning Models
 ### 1) Face detection Models
 For face detection, we are using two models, and they are both included in my repository. I downloaded the models based on the instructions provided by Adrian Rosebrock from "PyImageSearch" in his article - [Raspberry Pi and Movidius NCS Face Recognition](https://www.pyimagesearch.com/2020/01/06/raspberry-pi-and-movidius-ncs-face-recognition/):
 -  Detector: A pre-trained Caffe DL model to detect where the faces are located in a frame
