@@ -8,10 +8,6 @@ POSE_FOLDER="pose/"
 COCO_FOLDER=${POSE_FOLDER}"coco/"
 COCO_MODEL=${COCO_FOLDER}"pose_iter_440000.caffemodel"
 wget -c ${OPENPOSE_URL}${COCO_MODEL} -P ${COCO_FOLDER}
-# Alternative: it will not check whether file was fully downloaded
-# if [ ! -f $COCO_MODEL ]; then
-#     wget ${OPENPOSE_URL}$COCO_MODEL -P $COCO_FOLDER
-# fi
 
 # Body (MPI)
 MPI_FOLDER=${POSE_FOLDER}"mpi/"
